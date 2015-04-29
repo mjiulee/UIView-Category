@@ -9,6 +9,7 @@
 
 @implementation UIView (MBIBnspectable)
 
+#pragma mark - setCornerRadius/borderWidth/borderColor
 - (void)setCornerRadius:(NSInteger)cornerRadius{
     self.layer.cornerRadius = cornerRadius;
     self.layer.masksToBounds = cornerRadius > 0;
@@ -34,6 +35,31 @@
     return [UIColor colorWithCGColor:self.layer.borderColor];
 }
 
+#pragma mark - hexRgbColor
+- (void)setHexRgbColor:(NSString *)hexRgbColor{
+    NSScanner *scanner = [NSScanner scannerWithString:hexRgbColor];
+    unsigned hexNum;
+    if (![scanner scanHexInt:&hexNum]) return;
+    self.backgroundColor = [self colorWithRGBHex:hexNum];
+}
+
+- (UIColor *)colorWithRGBHex:(UInt32)hex {
+    int r = (hex >> 16) & 0xFF;
+    int g = (hex >> 8) & 0xFF;
+    int b = (hex) & 0xFF;
+    
+    return [UIColor colorWithRed:r / 255.0f
+                           green:g / 255.0f
+                            blue:b / 255.0f
+                           alpha:1.0f];
+}
+
+
+- (NSString *)hexRgbColor{
+    return @"0xffffff";
+}
+
+#pragma mark - setOnePx
 - (void)setOnePx:(BOOL)onePx{
     if (onePx) {
         CGRect rect = self.frame;

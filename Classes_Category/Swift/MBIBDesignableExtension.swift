@@ -37,6 +37,26 @@ extension UIView{
         }
     }
     
+    @IBInspectable var hexRgbColor: NSString {
+        get {
+            return "0xffffff";
+        }
+        set {
+            
+            var scanner = NSScanner(string: newValue as String)
+            var hexNum = 0 as UInt32
+            
+            if (scanner.scanHexInt(&hexNum)){
+                    var r = (hexNum >> 16) & 0xFF
+                    var g = (hexNum >> 8) & 0xFF
+                    var b = (hexNum) & 0xFF
+                
+                    self.backgroundColor = UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
+            }
+            
+        }
+    }
+    
     @IBInspectable var onePx: Bool {
         get {
             return self.onePx
@@ -47,6 +67,4 @@ extension UIView{
             }
         }
     }
-    
-    
 }
