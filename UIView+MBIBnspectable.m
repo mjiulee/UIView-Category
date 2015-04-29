@@ -1,5 +1,5 @@
 //
-//  xiaomabao
+//  UIView+MBIBnspectable.m
 //
 //  Created by 张磊 on 15/4/29.
 //  Copyright (c) 2015年 All rights reserved.
