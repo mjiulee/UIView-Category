@@ -1,8 +1,11 @@
+//  github: https://github.com/MakeZL/UIView-Category
+//  author: @email <120886865@qq.com>
 //
 //  UIView+MBIBnspectable.m
+//  MakeZL
 //
 //  Created by 张磊 on 15/4/29.
-//  Copyright (c) 2015年 All rights reserved.
+//  Copyright (c) 2015年 www.weibo.com/makezl All rights reserved.
 //
 
 #import "UIView+MBIBnspectable.h"
